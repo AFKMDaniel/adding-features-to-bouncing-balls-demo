@@ -1,3 +1,5 @@
+const para = document.querySelector('p');
+
 // setup canvas
 
 const canvas = document.querySelector('canvas');
@@ -142,6 +144,8 @@ class EvilCircle extends Shape {
 
         if (distance < this.size + ball.size) {
           ball.exists = false;
+          ballCount--;
+          para.textContent = `Ball count: ${ballCount}`;
         }
       }
     }
@@ -167,6 +171,9 @@ while (balls.length < 25) {
 
   balls.push(ball);
 }
+
+var ballCount = balls.length;
+para.textContent = `Ball count: ${ballCount}`;
 
 function loop() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
